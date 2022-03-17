@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 1.2rem;
+        }
+
+        
+
+        h1, h2{
+            color: blue;
+
+        }
+
+        mark{
+            color: red;
+            background-color: white;
+            font-weight: bolder;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Funcões-Métodos</h1>
+    
+
+    <p>Quando tivermos uma função dentro de um objeto, a função se chamará <mark>método</mark>.</p>
+
+
+<h2>forma padrão de um objeto contendo um método:</h2>
+
+
+    var aluno = {nome: "igor", nota: [5, 8], <br> media: function (n1, n2){ <br>
+        return (n1 + n2)/2
+    } <br>
+    } <br>
+    
+    console.log (aluno["nome"]) <br>
+    console.log (aluno.media(aluno.nota[0], aluno.nota[1]))
+
+
+
+    <h2>substituindo um método por uma propriedade (variável):</h2>
+    
+ 
+        <mark>var calcmedia</mark> = function (n1, n2){ <br>
+            return (n1 + n2)/2
+        } <br>
+    
+        var aluno = {nome: "igor", nota: [5, 8], media:<mark>calcmedia</mark>
+        } 
+    
+    <p>obs: Isso serve para caso eu queira mudar a forma de como é calculada a média.</p>
+    
+  
+    
+    <h2>this</h2>
+    
+    <p>Eu posso colocar uma <mark>função sem argumentos</mark> e indicar quais são os argumentos usando o <mark>this.</mark>,  isso serve para simplicar na hora de "chamar a função". </p>
+    
+    <p>
+        Ex: <br>
+        
+        var calcmedia = function (){ <br>
+            return (<mark>this.</mark>nota[0] + <mark>this.</mark>nota[1])/2
+        } <br>
+        
+        var aluno = {nome: "igor", nota: [5, 8], media:calcmedia } <br>
+        
+        console.log (aluno["nome"])
+        console.log (aluno.media())
+    </p>
+
+
+    
+</body>
+</html>

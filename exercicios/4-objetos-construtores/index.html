@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        font-size: 1.2em;
+    }
+
+    
+
+    h1, h2{
+        color: blue;
+    }
+    
+
+    mark{
+        color: red;
+        background-color: white;
+        font-weight: bolder;
+        display: inline-block;
+        font-size: 1em;
+    }
+</style>
+</head>
+<body>
+    <h1>Funções construtoras</h1>
+    <p>a forma <mark>"normal"</mark> de função se chama <mark>função de fábrica</mark>, onde a função retorna um valor através do return. <br> A função apresentada nessa aula se chama <mark>função construtora</mark>. nela não retornará nenhum valor, e suas variáveis receberão valores de um array new (nome da função), através do this.</p>
+
+   <h2>exemplo de função de fábrica</h2>
+   function criarAluno (nome, n1, n2){ <br>
+    return { <br>
+        nome: nome, <br>
+        nota1: n1, <br>
+        nota2: n2, <br>
+        media: function(){ <br>
+            return (this.nota1 + this.nota2)/2 <br>
+        } <br>
+
+    } <br>
+} <br>
+
+var turma = [ <br>
+    criarAluno("José", 10, 4), <br>
+    criarAluno("Maria", 5, 4), <br>
+    criarAluno("Fernanda", 9, 9) <br>
+] <br>
+
+var aluno = turma[2] <br>
+
+console.log (aluno.media()) <br>
+
+<h2>exemplo 1 de função construtora</h2>
+
+function aluno (nome, n1, n2){ <br>
+    
+    this.nome = nome <br>
+    this.nota1 = n1 <br>
+    this.nota2 = n2 <br>
+    this.media = function(){<br>
+        return (this.nota1 + this.nota2)/2 <br>
+    } <br>
+} <br>
+
+var a = new aluno ("José", 4, 10) <br>
+
+console.log (a.media()) <br>
+
+
+
+<h2>exemplo 2 de função construtora</h2>
+
+function caderno (folhas, capa, cor){ <br>
+    this.folhas = folhas <br>
+    this.capa = capa <br>
+    this.cor = cor <br>
+    this.frase = function(){ <br>
+        return console.log ("Hello, world!") <br>
+    } <br>
+} <br>
+
+var c = new caderno (100, "dura", "preta") <br>
+
+console.log (c) <br>
+console.log (c.frase()) <br>
+
+<p><mark>Obs:</mark> Ambas fazem a mesma coisa.</p>
+
+    
+    
+</body>
+</html>
